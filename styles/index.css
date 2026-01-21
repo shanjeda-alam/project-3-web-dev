@@ -30,14 +30,14 @@
     padding: 0;
 }
 #text-primary{
-    font-size: larger;
     font-weight: bold;
+    font-size: 30px;
     color: aliceblue;
 }
 #text-secondary{
-    font-size:larger;
+     font-size: 30px;
     font-weight: bold;
-   color:#9100F8;
+     color: #FB09B4;
 }
 .menu{
     max-width: 218px;
@@ -59,7 +59,7 @@
 text-decoration: none;
 }
 .btn{
-    max-width: 150px;
+    max-width: 200px;
     height: 44px;
     padding: 0 16px;
     background:linear-gradient(#F7E93F,#FB09B4,#9100F8);
@@ -80,9 +80,13 @@ text-decoration: none;
 }
 .btn::after{
     content:" →";
-    max-width: 20px;
-    height: 20px;
+    max-width: 15px;
+    height: 15px;
     color: #FFFF;
+}
+.btn:hover{
+    background-color: #2A186C;
+    cursor: pointer;
 }
 .banner{
     max-width: 1600px;
@@ -156,21 +160,31 @@ header{
     align-items: center; 
     gap:40px;
 }
-.header-frame-animation{
-    position: relative; 
+.header-frame-animation {
+    position: relative;
     max-width: 350px;
     height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #2A186C;
 }
-.badge{
-    position:relative;
-    top:5px;
-    right: 5px;
-    background-color:#00FF88 ;
-    color: #FFFF;
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); } 
+}
+.badge {
+    position: absolute;
+    top: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background-color: #00FF88;
+    color: #fff;
     font-size: 16px;
-    padding: 16px 8px;
-    
+    padding: 8px 12px;
+    border-radius: 12px;
+    animation: bounce 1s ease-in-out infinite;
 }
 .icon{
     width: 350px;
@@ -182,17 +196,9 @@ header{
     justify-content: center;
     padding-bottom: 40px;
 }
-@keyframes shake {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
-    50% { transform: rotate(-5deg); }
-    75% { transform: rotate(5deg); }
-    100% { transform: rotate(0deg); }
-}
 .microphone {
     width: 120px;
     height: auto;
-    animation: shake 0.5s ease-in-out infinite;
 }
 
 .header-frame-discription{
@@ -242,7 +248,7 @@ display: flex;
     background-color:#2A186C;
     cursor: pointer;
 }
-section{
+ section{
     max-width: 1600px;
     height: 1121px;
     gap:50px;
@@ -259,22 +265,60 @@ section{
      text-align: center;
      padding-bottom: 120px;
 }
-.section-container{
+.section-container {
     max-width: 1200px;
     height: 783px;
-    gap:30px;
     display: grid;
-    gap: 2px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    box-sizing: border-box;
 }
-.section-container1{
-    max-width: 1200px 480px;
-    gap:30px;
-    display: flex;
+
+
+.section-container > div {
+    box-shadow: #230E3D;
+    padding: 20px 20px;
+    box-sizing: border-box;
+}
+
+.box1 {
+    height: 480px;
+    padding: 40px 40px;
+    box-shadow: #230E3D; 
+    grid-row: span 2;
+    grid-column: span 1; 
+}
+.box2 { 
+    height: 225px;
+    padding: 20px 20px;
+    box-shadow: #230E3D;
+    grid-row: span 1;
+     grid-column: span 2; 
+ }
+.box3 { 
+    height: 225px;
+    box-shadow: #230E3D;
+    grid-row: span 1; 
+     grid-column: span 2; 
+}
+.box4 {
+    height: 273px;
+    padding: 40px 40px;
+    box-shadow: #230E3D;
+     grid-row: span 1; 
+      grid-column: span 2; 
+    }
+.box5 {
+    height: 273px;
+    box-shadow: #230E3D; 
+    grid-row: span 1; 
+    grid-column: span 1;
 }
 .tittle-bar{
     max-width: 1600px;
-    height: 1276px;
-    padding:120px 120px;
+   height: 1276px;
+    padding:200px 120px;
      background-color: #1A0B2E;
 }
 .featured-box1{
@@ -355,3 +399,166 @@ section{
     height: 172px;
     margin: 0px auto; 
 }
+
+.hamburger{
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span{
+    width: 24px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+}
+
+
+@media screen and (max-width:576px){
+
+    #bg-color{
+        max-width: 440px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 16px;
+        background-color: #1A0B2E;
+    }
+
+    .menu{
+        display: none;
+    }
+
+    .btn{
+        display: none;
+    }
+
+    #text-primary,
+    #text-secondary{
+        font-size: 22px;
+    }
+
+    .hamburger{
+        display: flex;
+    }
+    .banner{
+    max-width: 440px;
+    height: 575px;
+    padding: 20px 40px;
+    background-color:#1A0B2E ;
+}
+.banner-contant{
+    max-width: 400px;
+    height: 207px;
+    color: #FFFF;
+}
+.banner-tittle{
+    max-width: 400px;
+    height: 39px;
+    font-weight: bold;
+    font-size: 32px;
+    color: #FFFF;
+    text-align: center;
+}
+.banner-discription{
+    max-width: 400px;
+   height: 152px;
+   font-size: 16px;
+   color: #FFFF;
+   justify-content: center;
+}
+
+.banner-footer{
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.banner-footer-contant{
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.banner-footer-contant h1{
+    font-size: 32px;
+    color: #00FF88;
+}
+
+.banner-footer-contant h4{
+     font-size: 14px;
+    color: #fff;
+}
+  header {
+        max-width: 440px; 
+        height: 466px;
+        padding: 16px 12px;
+    }
+
+    .header-frame-animation {
+        width: 150px;
+        height: 150px;
+    }
+
+    .icon {
+        width: 120px;
+        height: 120px;
+    }
+
+    .microphone {
+        width: 50px;
+    }
+
+    .badge {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .header-frame-discription-p h2 {
+        font-size: 20px;
+    }
+
+    .header-frame-discription-p p {
+        font-size: 12px;
+    }
+    section{
+    max-width: 440px;
+    height: 1450px;
+    padding: 20px 40px;
+    background-color: #230E3D;
+
+}
+.section-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .box1, .box2, .box3, .box4, .box5 {
+        grid-column: auto;
+        grid-row: auto;
+        height: auto; 
+        padding: 20px;
+    }
+ .featured-box {
+        flex-direction: column;
+    }
+    .featured-box1 {
+        flex: 1 1 100%;
+        height: 300px;
+    }
+    .featured-episodes h4,
+    .host h4 {
+        font-size: 32px;
+    }
+    .host-container h4 {
+        font-size: 28px;
+    }
+   
+}
+
+
+         
